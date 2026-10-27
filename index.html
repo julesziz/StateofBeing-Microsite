@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State of Being — Microsite</title>
+<style>
+  /*
+    Microsite mockup: the Figma export (page.png, yellow keyed out) sits over the two
+    carousel videos, so the type — including the white titles — reads on top of them.
+    Positions are in design units of the 1280 × 3328 Figma frame.
+  */
+  :root { --yellow: #fcf7bb; }  /* matches the videos' background */
+  html, body { margin: 0; background: var(--yellow); }
+
+  .page {
+    position: relative;
+    width: min(100vw, 1280px);
+    aspect-ratio: 1280 / 3328;
+    margin: 0 auto;
+  }
+  .page video, .page img {
+    position: absolute; left: 0; width: 100%; display: block;
+  }
+  .page video { height: calc(720 / 3328 * 100%); object-fit: cover; }
+  .page img { top: 0; height: 100%; pointer-events: none; }
+
+  /* each carousel is centered on its white title */
+  .rineke { top: calc((422.5 - 360) / 3328 * 100%); }
+  .cam    { top: calc((2904.75 - 360) / 3328 * 100%); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <video class="rineke" src="rineke-carousel.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <video class="cam" src="cam-carousel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <img src="page.png" alt="State of Being — Rineke Dijkstra at Moderna Museet, 02.06–05.01.2026. Gallery, Tickets, About, Exhibition. Buy your ticket. Ditt Tillstånd av varande.">
+  </main>
+</body>
+</html>
